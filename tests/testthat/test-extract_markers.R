@@ -25,13 +25,11 @@ test_that('extract_markers filters significant markers when requested', {
   threshold <- data_with_threshold@threshold[1]
 
   if (nrow(significant_markers) > 0) {
-    expect_true(all(apply(significant_markers[, score_cols, drop = FALSE], 1, function(x) {
-      any(x >= threshold, na.rm = TRUE)
-    })))
+    expect_true(all(apply(significant_markers[, score_cols, drop = FALSE], 1, function(x) {any(x >= threshold, na.rm = TRUE)})))
   }
 })
 
 test_that('extract_markers rejects objects that are not GWASpoly.thresh', {
   expect_error(extract_markers(data.frame(x = 1), significant_only = TRUE),
-               regexp = NA)
+               regexp = "GWASpoly.thresh|n'est pas TRUE|is not TRUE")
 })

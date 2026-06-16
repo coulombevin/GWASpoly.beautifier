@@ -32,5 +32,5 @@ test_that('plot_manhattan accepts a significant marker data frame', {
 
 test_that('plot_manhattan rejects objects that are not GWASpoly.thresh', {
   expect_error(plot_manhattan(data.frame(x = 1)),
-               regexp = NA)
+               regexp = "GWASpoly.thresh|n'est pas TRUE|is not TRUE")
 })

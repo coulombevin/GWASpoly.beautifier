@@ -12,8 +12,6 @@ test_that('save_manhattan saves a plot file', {
 test_that('save_manhattan rejects non-ggplot objects', {
   outfile <- tempfile(fileext = '.png')
 
-  expect_error(
-    save_manhattan(data.frame(x = 1), outfile),
-    regexp = NA
-  )
+  expect_error(save_manhattan(data.frame(x = 1), outfile),
+               regexp = "ggplot|n'est pas TRUE|is not TRUE")
 })
