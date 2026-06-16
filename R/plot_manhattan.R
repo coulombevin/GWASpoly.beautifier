@@ -40,15 +40,6 @@ plot_manhattan <- function (data,
                                            threshold_line_type = 2,
                                            significant_markers = NULL,
                                            gap_size = 0.01) {
-  #' Continuous x position generator with gaps adapted from GWASpoly::get_x
-  #'
-  #' @param map      : GWASpoly.fitted  Fitted GWASpoly data.
-  #' @param gap_size : float            Total size multiplier to define
-  #'                                    gap size between chromosomes.
-  #'
-  #' @returns list(int)  list of x position and gaps.
-  #'
-  #' @examples get_x(data@map[, 2:3], gap_size = 0.01)
   get_x <- function(map, gap_size = 0) {
 
     a <- tapply(map[,2], map[,1], max)
