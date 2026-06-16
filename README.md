@@ -1,6 +1,7 @@
 # GWASpoly.beautifier
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/coulombevin/GWASpoly.beautifier/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/coulombevin/GWASpoly.beautifier/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `GWASpoly.beautifier` is a small utility package that helps turn
