@@ -16,5 +16,7 @@ save_manhattan(gwas_plot, file_name)
 Save beautified Manhattan plot with the right ratio
 }
 \examples{
+\dontrun{
 save_manhattan(gwas_plot = p, file_name = "vine_maturity_manhattan.png")
+}
 }

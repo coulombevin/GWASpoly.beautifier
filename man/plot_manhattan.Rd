@@ -58,5 +58,7 @@ ggplot2::ggplot object.
 Manhattan plot beautifier adapted from GWASpoly::manhattan.plot customized
 }
 \examples{
+\dontrun{
 plot_manhattan(data = data_with_threshold, significant_color = NULL)
+}
 }

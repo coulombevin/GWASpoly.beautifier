@@ -6,7 +6,9 @@
 #'
 #' @export
 #' @examples
+#' \dontrun{
 #' save_manhattan(gwas_plot = p, file_name = "vine_maturity_manhattan.png")
+#' }
 save_manhattan <- function(gwas_plot, file_name){
   # Allow only data from GWASpoly::set.threshold(...) command
   stopifnot(inherits(gwas_plot, 'ggplot'))

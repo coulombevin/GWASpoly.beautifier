@@ -9,7 +9,9 @@
 #' @export
 #' @importFrom magrittr %>%
 #' @examples
+#' \dontrun{
 #' significant_markers <- extract_markers(data = data_with_threshold)
+#' }
 extract_markers <- function (data, significant_only = TRUE) {
   # Allow only data from GWASpoly::set.threshold(...) command
   stopifnot(inherits(data, 'GWASpoly.thresh'))

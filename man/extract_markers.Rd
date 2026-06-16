@@ -21,5 +21,7 @@ Extract all/significant markers from GWASpoly.thresh data obtained with
 GWASpoly::set.threshold(...) command.
 }
 \examples{
+\dontrun{
 significant_markers <- extract_markers(data = data_with_threshold)
+}
 }

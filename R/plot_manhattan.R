@@ -27,7 +27,9 @@
 #' @export
 #' @importFrom magrittr %>%
 #' @examples
+#' \dontrun{
 #' plot_manhattan(data = data_with_threshold, significant_color = NULL)
+#' }
 plot_manhattan <- function (data,
                                            traits = NULL,
                                            models = NULL,
