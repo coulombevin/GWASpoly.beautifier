@@ -193,7 +193,7 @@ plot_manhattan <- function (data,
     # Plot each markers based on odd or even chromosome index
     p <- p +
       ggplot2::scale_x_continuous(name = 'Position (Mb)') +
-      ggplot2::scale_colour_manual(values = chrom_color[(which(unique(as.character(data@map$Chrom)) =  = chrom) %% 2) + 1])
+      ggplot2::scale_colour_manual(values = chrom_color[(which(unique(as.character(data@map$Chrom)) == chrom) %% 2) + 1])
   }
   p <- p +
     ggplot2::geom_hline(data = thresh.data,
