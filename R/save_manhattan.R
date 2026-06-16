@@ -4,10 +4,9 @@
 #'                            'GWASpoly_beautifier::plot_manhattan'.
 #' @param file_name : str     File name to save Manhattan plot.
 #'
+#' @export
 #' @examples
-#'
-#' @author Vincent Coulombe
-#' @version 2026.06.16.1
+#' save_manhattan(gwas_plot = p, file_name = "vine_maturity_manhattan.png")
 save_manhattan <- function(gwas_plot, file_name){
   # Allow only data from GWASpoly::set.threshold(...) command
   stopifnot(inherits(gwas_plot, 'ggplot'))

@@ -5,11 +5,10 @@
 #' @param significant_only : bool             Extract only markers above
 #'                                            threshold.
 #'
+#' @returns data.frame object with all requested markers.
+#' @export
 #' @examples
-#' significant_markers <- extract_markers(data_set_threshold)
-#'
-#' @author Vincent Coulombe
-#' @version 2026.06.16.1
+#' significant_markers <- extract_markers(data = data_with_threshold)
 extract_markers <- function (data, significant_only = TRUE) {
   # Allow only data from GWASpoly::set.threshold(...) command
   stopifnot(inherits(data, 'GWASpoly.thresh'))

@@ -23,13 +23,10 @@
 #' @param gap_size             : float          Total size multiplier to define
 #'                                              gap size between chromosomes.
 #'
-#' @returns ggplot2::ggplot object
-#'
+#' @returns ggplot2::ggplot object.
+#' @export
 #' @examples
-#' plot_manhattan(data_set_threshold, traits = c('A','B','C','D'))
-#'
-#' @author Vincent Coulombe
-#' @version 2026.06.16.1
+#' plot_manhattan(data = data_with_threshold, significant_color = NULL)
 plot_manhattan <- function (data,
                                            traits = NULL,
                                            models = NULL,
