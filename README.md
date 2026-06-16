@@ -67,39 +67,21 @@ genofile <- system.file("extdata", "new_potato_geno.csv", package = "GWASpoly")
 phenofile <- system.file("extdata", "new_potato_pheno.csv", package = "GWASpoly")
 
 # Read data
-data <- read.GWASpoly(
-  ploidy = 4,
-  pheno.file = phenofile,
-  geno.file = genofile,
-  format = "numeric",
-  n.traits = 1,
-  delim = ","
-)
+data <- read.GWASpoly(ploidy = 4, pheno.file = phenofile, geno.file = genofile, 
+  format = "numeric", n.traits = 1, delim = ",")
 
 # Fit GWASpoly model
 data_loco <- set.K(data, LOCO = TRUE, n.core = 2)
 
 N <- 957
-params <- set.params(
-  geno.freq = 1 - 5 / N,
-  fixed = "env",
-  fixed.type = "factor"
-)
+params <- set.params(geno.freq = 1 - 5 / N, fixed = "env", fixed.type = "factor")
 
-data_loco_scan <- GWASpoly(
-  data = data_loco,
-  models = c("additive", "1-dom"),
-  traits = c("vine.maturity"),
-  params = params,
-  n.core = 2
-)
+data_loco_scan <- GWASpoly(data = data_loco, models = c("additive", "1-dom"),
+  traits = c("vine.maturity"), params = params, n.core = 2)
 
 # Add significance threshold
-data_with_threshold <- set.threshold(
-  data_loco_scan,
-  method = "M.eff",
-  level = 0.05
-)
+data_with_threshold <- set.threshold(data_loco_scan, method = "M.eff", 
+  level = 0.05)
 ```
 
 ## Extract markers
@@ -108,10 +90,7 @@ Use `extract_markers()` to convert the relevant marker information from the
 `GWASpoly.thresh` object into a regular data frame.
 
 ``` r
-significant_markers <- extract_markers(
-  data = data_with_threshold,
-  significant_only = TRUE
-)
+significant_markers <- extract_markers(data = data_with_threshold)
 
 head(significant_markers)
 ```
@@ -119,27 +98,38 @@ head(significant_markers)
 To extract all markers instead of only significant markers:
 
 ``` r
-all_markers <- extract_markers(
-  data = data_with_threshold,
-  significant_only = FALSE
-)
+all_markers <- extract_markers(data = data_with_threshold,
+                               significant_only = FALSE)
 ```
 
 ## Create a beautified Manhattan plot
 
+Here's all possible parameters.
+
 ``` r
-p <- plot_manhattan(
-  data = data_with_threshold,
-  traits = "vine.maturity",
-  models = c("additive", "1-dom"),
-  chrom_color = c("#219ebc", "#8ecae6"),
-  significant_color = "#fb8500",
-  point_size = 1.5,
-  threshold_line_color = "grey50",
-  threshold_line_type = 2,
-  significant_markers = significant_markers,
-  gap_size = 0.01
-)
+p <- plot_manhattan(data = data_with_threshold,
+                    traits = NULL,
+                    models = NULL,
+                    chrom = NULL,
+                    chrom_color = c('#219ebc', '#8ecae6'),
+                    significant_color = '#fb8500',
+                    point_size = 1.5,
+                    point_alpha = NA,
+                    threshold_line_color = 'grey50',
+                    threshold_line_type = 2,
+                    significant_markers = NULL,
+                    gap_size=0.01)
+
+p
+```
+
+If `significant_markers != NULL`, only the markers in that data frame 
+(with a score above the threshold) are highlighted when `significant_color` 
+is not `NULL`.
+
+``` r
+p <- plot_manhattan(data = data_with_threshold, 
+                    significant_markers = head(significant_markers))
 
 p
 ```
@@ -148,23 +138,15 @@ If `significant_markers = NULL`, all markers above the threshold are highlighted
 when `significant_color` is not `NULL`.
 
 ``` r
-p_all_significant <- plot_manhattan(
-  data = data_with_threshold,
-  traits = "vine.maturity",
-  significant_markers = NULL,
-  significant_color = "#fb8500"
-)
+p_all_significant <- plot_manhattan(data_with_threshold)
 ```
 
 If `significant_color = NULL`, no separate significant-marker highlight layer is
 added.
 
 ``` r
-p_no_highlight <- plot_manhattan(
-  data = data_with_threshold,
-  traits = "vine.maturity",
-  significant_color = NULL
-)
+p_no_highlight <- plot_manhattan(data = data_with_threshold,
+                                 significant_color = NULL)
 ```
 
 ## Save the plot
@@ -173,19 +155,13 @@ p_no_highlight <- plot_manhattan(
 height according to the number of facet panels.
 
 ``` r
-save_manhattan(
-  gwas_plot = p,
-  file_name = "vine_maturity_manhattan.png"
-)
+save_manhattan(gwas_plot = p, file_name = "vine_maturity_manhattan.png")
 ```
 
-You can also save to PDF by changing the file extension:
+You can also save to PDF, jpeg, ... by changing the file extension:
 
 ``` r
-save_manhattan(
-  gwas_plot = p,
-  file_name = "vine_maturity_manhattan.pdf"
-)
+save_manhattan(gwas_plot = p, file_name = "vine_maturity_manhattan.pdf")
 ```
 
 ## Function overview

@@ -1,21 +1,24 @@
-test_that("extract_markers returns a data frame with marker metadata", {
+test_that('extract_markers returns a data frame with marker metadata', {
   data_with_threshold <- .make_gwaspoly_threshold_data()
 
-  markers <- extract_markers(data_with_threshold, significant_only = FALSE)
+  markers <- extract_markers(data_with_threshold,
+                             significant_only=FALSE)
 
-  expect_s3_class(markers, "data.frame")
-  expect_true(all(c("trait", "Marker", "Chrom", "Position") %in% names(markers)))
+  expect_s3_class(markers, 'data.frame')
+  expect_true(all(c('trait', 'Marker', 'Chrom', 'Position') %in% names(markers)))
   expect_gt(nrow(markers), 0)
   expect_true(all(markers$trait %in% names(data_with_threshold@scores)))
 })
 
-test_that("extract_markers filters significant markers when requested", {
+test_that('extract_markers filters significant markers when requested', {
   data_with_threshold <- .make_gwaspoly_threshold_data()
 
-  all_markers <- extract_markers(data_with_threshold, significant_only = FALSE)
-  significant_markers <- extract_markers(data_with_threshold, significant_only = TRUE)
+  all_markers <- extract_markers(data_with_threshold,
+                                 significant_only=FALSE)
+  significant_markers <- extract_markers(data_with_threshold,
+                                         significant_only=TRUE)
 
-  expect_s3_class(significant_markers, "data.frame")
+  expect_s3_class(significant_markers, 'data.frame')
   expect_lte(nrow(significant_markers), nrow(all_markers))
 
   score_cols <- colnames(data_with_threshold@scores[[1]])
@@ -28,9 +31,7 @@ test_that("extract_markers filters significant markers when requested", {
   }
 })
 
-test_that("extract_markers rejects objects that are not GWASpoly.thresh", {
-  expect_error(
-    extract_markers(data.frame(x = 1), significant_only = TRUE),
-    regexp = NA
-  )
+test_that('extract_markers rejects objects that are not GWASpoly.thresh', {
+  expect_error(extract_markers(data.frame(x = 1), significant_only = TRUE),
+               regexp = NA)
 })
