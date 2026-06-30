@@ -10,7 +10,7 @@
 #' save_manhattan(gwas_plot = p, file_name = "vine_maturity_manhattan.png")
 #' }
 save_manhattan <- function(gwas_plot, file_name){
-  # Allow only data from GWASpoly::set.threshold(...) command
+  # Allow only data from ggplot2
   stopifnot(inherits(gwas_plot, 'ggplot'))
   # Get facets count to define document height
   supplementary_panel_count <- length(unique(ggplot2::ggplot_build(gwas_plot)$layout$layout$PANEL))-1

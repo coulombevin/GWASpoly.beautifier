@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(GWASpoly.beautifier)
+library(GWASbeautifier)
 
-test_check("GWASpoly.beautifier")
+test_check("GWASbeautifier")

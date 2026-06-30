@@ -50,3 +50,5 @@ rsconnect/
 .Rproj.user
 .DS_Store
 .quarto
+
+.updates_pipeline

@@ -1,22 +1,23 @@
-Package: GWASpoly.beautifier
+Package: GWASbeautifier
 Title: Publication-ready Manhattan plots and utilities
-Version: 1.0
+Version: 2.0
 Authors@R: 
-    person("Vincent", "Coulombe", , "vincent.coulombe.6@ulaval.ca", 
-    role = c("aut", "cre"),
-    comment=c(ORCID="0009-0000-0594-9985"))
-Description: Publication-ready Manhattan plots and utilities for [GWASpoly](https://jendelman.github.io/GWASpoly/GWASpoly.html).
+    person("Vincent", "Coulombe", , "vincent.coulombe.6@ulaval.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0000-0594-9985"))
+Description: Publication-ready Manhattan plots and utilities for
+    [GWASpoly](https://jendelman.github.io/GWASpoly/GWASpoly.html) and
+    [GAPIT](https://github.com/jiabowang/GAPIT).
 License: GPL (>= 3)
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 8.0.0
-URL: https://github.com/coulombevin/GWASpoly.beautifier
-BugReports: https://github.com/coulombevin/GWASpoly.beautifier/issues
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3
+URL: https://github.com/coulombevin/GWASbeautifier
+BugReports: https://github.com/coulombevin/GWASbeautifier/issues
 Imports: 
     dplyr,
     ggplot2,
-    tidyr,
-    magrittr
+    magrittr,
+    tidyr
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.0.0

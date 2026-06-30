@@ -1,7 +1,8 @@
-#' Extract all/significant markers from GWASpoly.thresh data obtained with
-#' GWASpoly::set.threshold(...) command.
+#' Extract all/significant markers from GWASpoly.thresh or GAPIT.thresh data
+#' obtained with [GWASpoly::set.threshold()] or [get_formatted_gapit()] command.
 #'
-#' @param data             : GWASpoly.thresh  GWASpoly threshold data.
+#' @param data             : 'package'.thresh GWASpoly or GAPIT threshold
+#'                                            formated data.
 #' @param significant_only : bool             Extract only markers above
 #'                                            threshold.
 #'
@@ -12,9 +13,12 @@
 #' \dontrun{
 #' significant_markers <- extract_markers(data = data_with_threshold)
 #' }
+#' @seealso
+#' [get_formatted_gapit()] for GAPIT output data conversion.
 extract_markers <- function (data, significant_only = TRUE) {
-  # Allow only data from GWASpoly::set.threshold(...) command
-  stopifnot(inherits(data, 'GWASpoly.thresh'))
+  # Allow only data from GWASpoly::set.threshold(...) or
+  # GWASbeautifier::get_formatted_gapit(...) command.
+  stopifnot(inherits(data, 'GWASpoly.thresh') | inherits(data, "GAPIT.thresh"))
   # Define columns names
   col_names <- c(c('trait', 'Marker', 'Chrom', 'Position'), colnames(data@scores[[1]]))
   # Generate data frame

@@ -2,13 +2,14 @@
 % Please edit documentation in R/extract_markers.R
 \name{extract_markers}
 \alias{extract_markers}
-\title{Extract all/significant markers from GWASpoly.thresh data obtained with
-GWASpoly::set.threshold(...) command.}
+\title{Extract all/significant markers from GWASpoly.thresh or GAPIT.thresh data
+obtained with \code{\link[GWASpoly:set.threshold]{GWASpoly::set.threshold()}} or \code{\link[=get_formatted_gapit]{get_formatted_gapit()}} command.}
 \usage{
 extract_markers(data, significant_only = TRUE)
 }
 \arguments{
-\item{data}{: GWASpoly.thresh  GWASpoly threshold data.}
+\item{data}{: 'package'.thresh GWASpoly or GAPIT threshold
+formated data.}
 
 \item{significant_only}{: bool             Extract only markers above
 threshold.}
@@ -17,11 +18,14 @@ threshold.}
 data.frame object with all requested markers.
 }
 \description{
-Extract all/significant markers from GWASpoly.thresh data obtained with
-GWASpoly::set.threshold(...) command.
+Extract all/significant markers from GWASpoly.thresh or GAPIT.thresh data
+obtained with \code{\link[GWASpoly:set.threshold]{GWASpoly::set.threshold()}} or \code{\link[=get_formatted_gapit]{get_formatted_gapit()}} command.
 }
 \examples{
 \dontrun{
 significant_markers <- extract_markers(data = data_with_threshold)
 }
+}
+\seealso{
+\code{\link[=get_formatted_gapit]{get_formatted_gapit()}} for GAPIT output data conversion.
 }

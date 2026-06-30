@@ -1,11 +1,11 @@
-# GWASpoly.beautifier
+# GWASbeautifier
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/coulombevin/GWASpoly.beautifier/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/coulombevin/GWASpoly.beautifier/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/coulombevin/GWASbeautifier/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/coulombevin/GWASbeautifier/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-`GWASpoly.beautifier` is a small utility package that helps turn [`GWASpoly`](https://github.com/jendelman/GWASpoly) version 2 outputs into publication-ready Manhattan plots and marker tables.
+`GWASbeautifier` is a small utility package that helps turn [`GWASpoly`](https://github.com/jendelman/GWASpoly) version 2 outputs into publication-ready Manhattan plots and marker tables.
 
 The package is designed for users who already run GWAS analyses with `GWASpoly`, but want more control over plotting style, significant marker highlighting, chromosome spacing, plot dimensions, and marker export.
 
@@ -14,7 +14,7 @@ The package is designed for users who already run GWAS analyses with `GWASpoly`,
 Library | Plot
 :---:|:---:
 GWASPoly | <img width="3375" height="675" alt="GWASpoly" src="https://github.com/user-attachments/assets/8ef0609d-8d49-487f-b82b-3ddf38e3b5f4" /> 
-GWASpoly beautifier | <img width="3375" height="675" alt="GWASpoly beautifier" src="https://github.com/user-attachments/assets/a045423d-fc4c-4ed3-a004-66fe8ac9fcbd" />
+GWAS beautifier | <img width="3375" height="675" alt="GWASpoly beautifier" src="https://github.com/user-attachments/assets/a045423d-fc4c-4ed3-a004-66fe8ac9fcbd" />
 
 ## Main features
 
@@ -26,20 +26,20 @@ GWASpoly beautifier | <img width="3375" height="675" alt="GWASpoly beautifier" s
 
 ## Installation
 
-You can install the development version of `GWASpoly.beautifier` from GitHub:
+You can install the development version of `GWASbeautifier` from GitHub:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("coulombevin/GWASpoly.beautifier")
+remotes::install_github("coulombevin/GWASbeautifier")
 ```
 
 ## Example workflow
 
-This example reproduces the main structure of the GWASpoly Version 2 vignette, then uses `GWASpoly.beautifier` to extract significant markers, create a Manhattan plot, and save it.
+This example reproduces the main structure of the GWASpoly Version 2 vignette, then uses `GWASbeautifier` to extract significant markers, create a Manhattan plot, and save it.
 
 ``` r
 library(GWASpoly)
-library(GWASpoly.beautifier)
+library(GWASbeautifier)
 
 # Example files included with GWASpoly
 genofile <- system.file("extdata", "new_potato_geno.csv", package = "GWASpoly")
