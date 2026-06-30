@@ -5,9 +5,13 @@
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
+<<<<<<< HEAD
 `GWASbeautifier` is a small utility package that helps turn [`GWASpoly`](https://github.com/jendelman/GWASpoly) version 2 outputs into publication-ready Manhattan plots and marker tables.
+=======
+`GWASpoly.beautifier` is a small utility package that helps turn [`GWASpoly`](https://github.com/jendelman/GWASpoly) version 2 outputs into publication-ready Manhattan plots.
+>>>>>>> 8db7c34440c983fa1a8559e4d0468a654322c5ba
 
-The package is designed for users who already run GWAS analyses with `GWASpoly`, but want more control over plotting style, significant marker highlighting, chromosome spacing, plot dimensions, and marker export.
+The package is designed for users who already run GWAS analyses with `GWASpoly`, but want more control over plotting style, significant marker highlighting, chromosome spacing, and more.
 
 ## Comparison
 
